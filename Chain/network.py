@@ -50,7 +50,7 @@ class ManagerNode(BaseNode):
 
         self.address = ip_list
 
-    def regist(self, node: dict)
+    def regist(self, node: dict):
     # TODO
         pass
 
