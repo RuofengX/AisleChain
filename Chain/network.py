@@ -52,6 +52,7 @@ class ManagerNode(BaseNode):
 
     def regist(self, node: dict)
     # TODO
+        pass
 
 
 
