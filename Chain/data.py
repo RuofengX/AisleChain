@@ -4,6 +4,8 @@
 from hashlib import sha256
 import json
 import time
+from Chain.config import DIFFICULTY_LEVEL, BLOCK_LEN
+
 
 class DifficultyMixin():
     """
@@ -14,7 +16,7 @@ class DifficultyMixin():
     def __init__(self) -> None:
         super().__init__(self)
 
-        self.difficulty: int = 3
+        self.difficulty: int = DIFFICULTY_LEVEL
 
     def difficulty_validate(self, hash_string):
         """
@@ -103,8 +105,8 @@ class BlockChain():
         chain: 主链
         unchained_data: 还未保存到链中的数据
     """
-    def __init__(self, block_len:int = 100) -> None:
-        self.block_len = chain_len
+    def __init__(self) -> None:
+        self.block_len = BLOCK_LEN
         self.chain = []
         self.unchained_data = []
         self.__genesis()
@@ -140,7 +142,7 @@ class BlockChain():
 
         # 当暂存的数据数量超过设定的长度时：
         if len(self.unchained_data) >= self.block_len:
-            self.__new_block()
+            self.__new_block()  # 新建一个block
                     
     @property
     def last_block(self) -> Block:
