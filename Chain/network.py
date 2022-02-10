@@ -26,7 +26,7 @@ class Node(BaseNode):
 
     def get_ip_address(self, ipv6: bool=False):
         if ipv6:
-            s = socket.socket(socket.AF_INET6, socket.SOCK_DGRAM)
+            s = socket.socket(socket.AF_INET6, socket.SOCK_DGRAM)  #TODO: 需要验证
             s.connect(("2001:4860:4860:8888", 80))
         else:
             s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
